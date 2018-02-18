@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="../static/bootstrap.css" />
+  <!--<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap.css') }}">-->
+  <script>
+  function searchcourts(){
+        document.searchdata.action="http://localhost:8090/search";
+        document.searchdata.submit();
+        }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <h3 align="right"><a href="http://localhost:8090/signup">Sign up</a></h3>
+      <h3 align="right"><a href="http://localhost:8090/signin">Sign In</a></h3>
+    </div>
+      <div class="row">
+          <h1>Lets Start the Game !!</h1>
+      </div>
+      <div class="row" style="margin-top:20px">
+          <div class="col-md-12">
+              <form role="form" action="" method="POST" name="searchdata">
+                  <div class="form-group">
+<!--                      <label for="title">Title</label>-->
+                      <input class="form-control" name="search" placeholder="Sports or Location">
+                      <input type="submit" name='submit' class="btn btn-default" onclick="searchcourts()" value="Search!"></input>
+                  </div>
+                  <div class="row">
+                      <h1>Explore !!</h1>
+                  </div>
+                  <div class="row">
+                    <a href="http://localhost:8090/courts"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f8/Python_logo_and_wordmark.svg" alt="Courts"></a>
+                    <a href="http://localhost:8090/events"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f8/Python_logo_and_wordmark.svg" alt="Events"></a>
+                  </div>
+<!--                      <select class="form-control" name="author">
+                          <option value="1">Edgar Allan Poe</option>
+                          <option value="2">Mark Twain</option>
+                          <option value="3">Arthur Conan Doyle</option>
+                      </select>-->
+                  <!--<input type="hidden" name="SECRET_KEY" value="rmotr">-->
+              </form>
+          </div>
+      </div>
+  </div>
+</body>
+</html>
