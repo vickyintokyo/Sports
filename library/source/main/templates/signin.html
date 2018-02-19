@@ -4,7 +4,7 @@
   <link rel="stylesheet" type="text/css" href="../static/bootstrap.css" />
   <!--<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap.css') }}">-->
   <script>
-  function searchcourts(){
+  function login(){
         document.searchdata.action="http://localhost:8090/search";
         document.searchdata.submit();
         }
@@ -13,26 +13,19 @@
 <body>
   <div class="container">
     <div class="row">
-      <h3 align="right"><a href="http://localhost:8090/signup">Sign up</a></h3>
-      <h3 align="right"><a href="http://localhost:8090/loginpage">Sign In</a></h3>
+      <h3 align="center"><a href="http://localhost:8090/signin">Google Sign In</a></h3>
     </div>
-      <div class="row">
-          <h1>Lets Start the Game !!</h1>
-      </div>
       <div class="row" style="margin-top:20px">
           <div class="col-md-12">
               <form role="form" action="" method="POST" name="searchdata">
                   <div class="form-group">
-<!--                      <label for="title">Title</label>-->
-                      <input class="form-control" name="search" placeholder="Sports or Location">
-                      <input type="submit" name='submit' class="btn btn-default" onclick="searchcourts()" value="Search!"></input>
+                      <label for="username">User Name</label>
+                      <input class="form-control" name="username" placeholder="User Name">
                   </div>
-                  <div class="row">
-                      <h1>Explore !!</h1>
-                  </div>
-                  <div class="row">
-                    <a href="http://localhost:8090/courts"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f8/Python_logo_and_wordmark.svg" alt="Courts"></a>
-                    <a href="http://localhost:8090/events"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f8/Python_logo_and_wordmark.svg" alt="Events"></a>
+                  <div class="form-group">
+                      <label for="pwd">Password</label>
+                      <input class="form-control" name="pwd" placeholder="Password">
+                      <input type="submit" name='submit' class="btn btn-default" onclick="login()" value="Sign In!"></input>
                   </div>
 <!--                      <select class="form-control" name="author">
                           <option value="1">Edgar Allan Poe</option>

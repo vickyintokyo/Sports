@@ -26,11 +26,18 @@ def getevents():
 def dosignup():
     return 'Welcome to Signup!'
 
+@app.route('/loginpage')
+def loginpage():
+    return render_template('signin.html')
+
 @app.route('/signin')
 def dosignin():
     from gsignin import index
     return index()
-    #return 'Welcome to SignIn!'
+
+@app.route('/udashboard')
+def getuserdashboard():
+    return 'Welcome to dashboard!'
 
 @app.route('/login')
 def glogin():

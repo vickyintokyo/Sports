@@ -50,8 +50,8 @@ def index():
             session.pop('access_token', None)
             return redirect(url_for('glogin'))
         return res.read()
-
-    return res.read()
+    #return res.read()
+    return redirect(url_for('getuserdashboard'))
 
 #@app.route('/login')
 def login():
