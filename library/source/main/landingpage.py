@@ -6,13 +6,12 @@ Add an extra view `say_name` that returns your name.
 """
 from flask import Flask,render_template
 import sys
-sys.path.insert(0, '/Sports/library/db')
-import dbconnect
-from dbconnect import init_db
+sys.path.append('../')
+#from dbconnect import init_db1
+
 
 app = Flask(__name__)
 app.secret_key = 'development key'
-
 
 @app.route('/', methods=['GET', 'POST'])
 def lpmain():
@@ -32,7 +31,9 @@ def dosignup():
 
 @app.route('/loginpage')
 def loginpage():
-    conn = init_db()
+    from dboperations import dbcon
+    reload(dbcon)
+    conn = dbcon.init_db1()
     return render_template('signin.html')
 
 @app.route('/signin')
