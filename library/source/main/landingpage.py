@@ -6,9 +6,9 @@ Add an extra view `say_name` that returns your name.
 """
 from flask import Flask,render_template
 import sys
-sys.path.append('../')
-#from dbconnect import init_db1
+import sqlite3
 
+sys.path.append('../')
 
 app = Flask(__name__)
 app.secret_key = 'development key'
@@ -31,9 +31,6 @@ def dosignup():
 
 @app.route('/loginpage')
 def loginpage():
-    from dboperations import dbcon
-    reload(dbcon)
-    conn = dbcon.init_db1()
     return render_template('signin.html')
 
 @app.route('/signin')
@@ -41,8 +38,15 @@ def dosignin():
     from gsignin import index
     return index()
 
-@app.route('/udashboard')
+@app.route('/udashboard', methods=['GET', 'POST'])
 def getuserdashboard():
+    from dboperations import dbcon
+    reload(dbcon)
+    conn = dbcon.init_db()
+    import verifyuid
+    flag = verifyuid.verifypwd(conn,"vik","vik")
+    print flag
+    if flag:True
     return 'Welcome to dashboard!'
 
 @app.route('/login')

@@ -3,13 +3,10 @@ import sqlite3
 def __init__():
     return;
 
-def init_db1():
-    conn = sqlite3.connect('sports.db')
+def init_db():
+    conn = sqlite3.connect('../../db/sports.db')
     print "Database created and opened succesfully"
     return conn
-
-def helloworld():
-    print "helloworld"
 
 def main():
     app.run()
