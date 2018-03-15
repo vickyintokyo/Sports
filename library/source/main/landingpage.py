@@ -4,7 +4,7 @@ From this page all the links will start flowing.
 **TODO**
 Add an extra view `say_name` that returns your name.
 """
-from flask import Flask,render_template
+from flask import Flask,request,render_template
 import sys
 import sqlite3
 
@@ -44,10 +44,14 @@ def getuserdashboard():
     reload(dbcon)
     conn = dbcon.init_db()
     import verifyuid
-    flag = verifyuid.verifypwd(conn,"vik","vik")
+    uid = request.form['username']
+    pwd = request.form['pwd']
+    flag = verifyuid.verifypwd(conn,uid,pwd)
     print flag
-    if flag:True
-    return 'Welcome to dashboard!'
+    if flag:
+        return 'Welcome to dashboard!'
+    else:
+        return 'Error in getting the dashboard'
 
 @app.route('/login')
 def glogin():

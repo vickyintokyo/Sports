@@ -4,11 +4,16 @@ def __init__():
     return;
 
 def verifypwd(conn,uid,pwd):
-    cursor = conn.cursor();
-    print cursor
-    obj = cursor.execute("select * from userdata where id="+uid)
-    print "came here"
-    return true
+    c = conn.cursor();
+    c.execute("select pwd from userdata where name='"+uid+"'")
+    rs = c.fetchone()
+    if rs == None:
+        return False;
+    else:
+        if pwd == rs[0]:
+            return True
+        else:
+            return False
 
 def main():
     app.run()
